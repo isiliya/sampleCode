@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		
+		<script>
+		
+			function nachladen(){
+			
+				var http = new XMLHttpRequest();
+				http.open('GET', 'data/daten.txt', true);
+				http.send();
+
+				http.onreadystatechange = function (){ 
+					
+					if(http.readyState == 4 && http.status == 200){
+						document.getElementById('ausgabe').innerHTML = http.responseText + '<hr/>';
+					}
+					
+				};
+			
+			}
+		
+			// Hauptprogramm
+		
+			window.onload = nachladen;
+			
+			
+		
+		</script>
+		
+		
+		
+	</head>
+	
+	<body>
+		
+		<h2>AJAX asynchron</h2>
+		
+		<div id="ausgabe"></div>
+		
+	
+		
+	</body>
+	 
+
+</html>

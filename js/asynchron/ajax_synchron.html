@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		
+	</head>
+	
+	<body>
+		
+		<h2>AJAX synchron</h2>
+		
+		<script>
+		
+			// http.responseText  STRING
+			// http.resopnseXML   OBJECT
+		
+			
+			/********************************************
+				Text
+			*********************************************/
+			
+			var http = new XMLHttpRequest();
+			http.open('GET', 'data/daten.txt', false);
+			http.send();
+			
+			document.write(http.responseText);
+			document.write('<hr/>');
+		
+			/********************************************
+				XML
+			*********************************************/
+		
+			var http = new XMLHttpRequest();
+			http.open('GET', 'data/daten.xml', false);
+			http.send();
+		
+			document.write(http.responseXML);
+			
+			var html = '';
+			html += '<h2>' + http.responseXML.getElementsByTagName('titel')[0].firstChild.nodeValue + '</h2>';
+			html += '<h2>' + http.responseXML.getElementsByTagName('eintragstext')[2].firstChild.nodeValue + '</h2>';
+			html += '<h2>' + http.responseXML.getElementsByTagName('stichwort')[2].getAttribute('land') + '</h2>';
+			
+			document.write(html);
+			document.write('<hr/>');
+		
+			/********************************************
+				JSON
+			*********************************************/
+
+	
+			var http = new XMLHttpRequest();
+			http.open('GET', 'data/daten.json', false);
+			http.send();
+		
+			var json = JSON.parse(http.responseText);
+		
+			document.write(json.Inhaber.Alter);
+			
+			var html = '';
+			
+			html += '<ul>';
+			html += '<li>'+json.Inhaber.Hobbys[0]+'</li>';
+			html += '<li>'+json.Inhaber.Hobbys[1]+'</li>';
+			html += '<li>'+json.Inhaber.Hobbys[2]+'</li>';
+			html += '</ul>';
+			document.write(html);
+			
+		
+		</script>
+		
+		
+		
+	</body>
+	 
+
+</html>
