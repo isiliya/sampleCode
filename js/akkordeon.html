@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+
+	<head>
+	
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Tolle Webseite</title>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+		
+		
+		<style>
+		
+			@import url('https://fonts.googleapis.com/css?family=Indie+Flower|Oxygen');
+			
+			* {font-family:Oxygen, 'Indie Flower', Arial, Helvetica, sans-serif; margin:0; padding:0;}
+			.clear {clear:both;}
+		
+		
+			#wrapper {width:800px; margin:0 auto; }
+		
+			#head {background-image:url('akk.jpg'); height:240px;}
+			#content { }
+			#foot {background:#d9d9d9; }
+			
+			.links, .mitte, .rechts, .artikel {float:left;}
+			
+			.links  {width:150px;}
+			.rechts {width:150px;}
+			.mitte  {width:500px;}
+			
+			.artikel { border:1px solid #F00;}
+			
+			#head h2 {padding:80px 0 0 180px; color:#FFF;}
+			
+			.akkordeon {margin-top:20px;}
+			.head { height:30px; background:#ddd; margin-top:2px; padding: 15px 0 0 10px; cursor:pointer;}
+			.news { height:90px; border:2px solid #ddd; padding: 5px 0 0 8px;}
+		
+			.news ~ .news {display:none;}
+		
+		
+			.news p { font-size:0.8em; padding-right:10px; text-align:justify;}
+			.news p img {
+				float:left; margin-right:10px; border-radius:2px;
+				box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.75);
+			}
+		
+		</style>
+		
+		
+		<script>
+			
+			var dokument = {
+				vn :  'Susi',
+				nn :  'Meyer', 
+				getElementsByClassName : function(susi){
+					return [{innerHTML:'Brot'}, {innerHTML:'Wurst'}, {innerHTML:'Käse'}];
+				}
+			}
+			
+			
+			var offen = 0;
+			
+			function oeffnen(nr){
+				var ele = document.getElementsByClassName('news');
+				ele[offen].style.display = 'none';
+				ele[nr].style.display = 'block';
+				offen = nr;
+				
+			}
+		
+		</script>
+		
+		
+	</head>
+	
+	<body>
+		
+		<script>
+		
+			
+			
+			var x = dokument.getElementsByClassName('news')[2].innerHTML;
+			
+		
+		</script>
+		
+		
+		
+		<div id="wrapper">
+		
+			<div id="head">
+				<h2>AKKORDEON</h2>
+			</div>
+			
+			<div id="content">
+				
+				<div class="links">&nbsp;</div>
+				
+				<div class="mitte">
+					<div class="akkordeon">
+						<div onclick="oeffnen(0)" class="head"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Lorem ipsum</div>
+						<div class="news"><p><img src="http://lorempixel.com/80/80/sports" />Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p></div>
+						<div onclick="oeffnen(1)" class="head">Trapattoni '98</div>
+						<div class="news"><p><img src="http://lorempixel.com/80/80/nature" />Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich habe gehört viele Situationen.</p></div>
+						<div onclick="oeffnen(2)" class="head">HEAD 3</div>
+						<div class="news"><p>Toller Artikel 3</p></div>
+						<div onclick="oeffnen(3)" class="head">HEAD 4</div>
+						<div class="news"><p>Toller Artikel 4</p></div>
+						<div onclick="oeffnen(4)" class="head">HEAD 5</div>
+						<div class="news"><p>Toller Artikel 5</p></div>
+					</div>
+					
+					<br/>
+					<h2>More......</h2>
+					<br/>
+					
+				</div>
+				
+				<div class="rechts">&nbsp;</div>
+				<div class="clear"></div>
+			
+			</div>
+			
+			
+			<div id="foot"><br/>The Company Name<sup>&copy;</sup><br/><br/></div>
+		
+		</div>
+		
+		
+	</body>
+	 
+
+</html>
